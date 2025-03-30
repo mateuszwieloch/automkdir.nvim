@@ -16,13 +16,36 @@ Use your favorite package manager.
 lazy.nvim
 ```
 require("lazy").setup({
-  "mateuszwieloch/automkdir.nvim"
+  {
+    "mateuszwieloch/automkdir.nvim",
+    opts = {},
+  },
 })
 ```
 
 vim-plug
 ```
+call plug#begin()
+
 Plug "mateuszwieloch/automkdir.nvim"
+
+call plug#end()
+
+lua <<< EOF
+
+require "automkdir".setup()
+
+EOF
+```
+
+## Configuration
+
+Here are the default config options for automkdir:
+```lua
+{
+  ---@type string[] Array of regexes to try to match filepaths against.
+  blacklist = { "oil:.*" },
+}
 ```
 
 ## See also
